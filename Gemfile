@@ -12,3 +12,4 @@ group :development do
 end
 
 gem "bourbon"
+gem "fontello_rails_converter", github: "StemboltHQ/fontello_rails_converter"
