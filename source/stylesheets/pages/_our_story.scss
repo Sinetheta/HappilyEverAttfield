@@ -1,0 +1,46 @@
+.our-story {
+  .main-content .container {
+    display: table;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  h2,
+  .polaroid figcaption {
+    font-size: 4vw;
+  }
+}
+
+.image,
+.story {
+  max-width: 75%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 800px) {
+  .image,
+  .story {
+    display: table-cell;
+    width: 50%;
+    padding: 2rem;
+    vertical-align: middle;
+  }
+
+  .our-story {
+    h2,
+    .polaroid figcaption {
+      font-size: 3vw;
+    }
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .our-story {
+    h2,
+    .polaroid figcaption {
+      font-size: 2rem;
+    }
+  }
+}
