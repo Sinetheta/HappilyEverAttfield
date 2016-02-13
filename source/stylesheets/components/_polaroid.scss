@@ -1,0 +1,31 @@
+.polaroid {
+  padding: 20px 10px;
+
+  figure {
+    position: relative;
+    margin: 1rem;
+    padding: 6px 8px 10px 8px;
+    box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+    background: $color-polaroid-bg;
+    @include linear-gradient(top, shade($color-polaroid-bg, 5%), $color-polaroid-bg 20%, tint($color-polaroid-bg, 20%) 60%);
+    @include transform(rotate(-3deg));
+    -webkit-backface-visibility: hidden; /*prevent rotated text being jagged in Chrome and Safari*/
+
+    &:before {
+      content: '';
+      display: block;
+      @include position(absolute, -2% null null -4%);
+      width: 30%;
+      height: 10%;
+      background-color: $color-scotch-tape;
+      @include transform(rotate(-12deg));
+    }
+  }
+
+  figcaption {
+    text-align: center;
+    font-family: $font-family-emphasis;
+    font-size: 2rem;
+    color: #454f40;
+  }
+}
