@@ -1,0 +1,42 @@
+body {
+  @include display(flex);
+  @include flex-direction(column);
+  margin: 0;
+  color: $color-primary;
+
+  > * {
+    @include flex-shrink(0);
+  }
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.main-content {
+  @include flex-grow(1);
+  position: relative;
+  padding: 4rem 1rem;
+
+  &:after {
+    @include position(absolute, 0);
+    background: image_url('nasty_fabric.png');
+    content: '';
+    opacity: 0.5;
+    z-index: -1;
+  }
+}
+
+.masthead {
+  color: $color-primary;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+.right {
+  float: right;
+}
