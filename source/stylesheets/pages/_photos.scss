@@ -1,0 +1,47 @@
+.photos {
+  .main-content {
+    background: shade($color-primary, 10%);
+  }
+}
+
+.photo-grid {
+  margin: 0 auto;
+}
+
+.photo {
+  float: left;
+  overflow: hidden;
+
+  a {
+    cursor: zoom-in;
+
+    img {
+      @include transition(transform 250ms);
+      display: block;
+    }
+
+    &:not(:hover) {
+      img {
+        @include transform(scale(0.98));
+      }
+    }
+  }
+
+  .small-thumb {
+    display: block;
+  }
+
+  .medium-thumb {
+    display: none;
+  }
+
+  @media screen and (min-width: 600px) {
+    .small-thumb {
+      display: none;
+    }
+
+    .medium-thumb {
+      display: block;
+    }
+  }
+}

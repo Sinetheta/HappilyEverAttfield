@@ -1,0 +1,10 @@
+---
+title: Photos
+---
+
+.photo-grid
+  - data.photos.each do |photo|
+    .photo<
+      = link_to "#{photo.url}.jpg", "data-lightbox" => "roadtrip" do
+        = image_tag "#{photo.url}s.jpg", class: 'small-thumb'
+        = image_tag "#{photo.url}m.jpg", class: 'medium-thumb'

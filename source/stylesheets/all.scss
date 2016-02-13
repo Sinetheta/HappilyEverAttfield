@@ -4,12 +4,13 @@
 @import 'variables';
 @import 'typography';
 
-
+@import 'components/lightbox';
 @import 'components/polaroid';
 
 @import 'layout/main';
 @import 'pages/index';
 @import 'pages/our_story';
+@import 'pages/photos';
 
 html,
 body {
