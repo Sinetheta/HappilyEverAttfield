@@ -1,0 +1,102 @@
+@media screen and (max-width: 799px) {
+  .people-choices {
+    display: none;
+  }
+
+  .people-details {
+    .person {
+      margin-bottom: 10%;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .people-choices,
+  .people-details {
+    width: 46%;
+    float: left;
+  }
+
+  .people-choices {
+    margin-right: 8%;
+  }
+
+  .people-choices {
+    @include display(flex);
+    @include flex-wrap(wrap);
+
+    .person {
+      width: 100%;
+    }
+  }
+
+  .people-details {
+    .person {
+      &:not(.active) {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .people-choices {
+    .person {
+      width: 48%;
+      margin-right: 2%;
+    }
+  }
+}
+
+.people-choices {
+  .person {
+    box-sizing: border-box;
+    background: white;
+    margin-bottom: 2%;
+    padding: 0.5rem;
+    background: tint($color-primary, 95%);
+
+    &:hover {
+      background: tint($color-primary, 80%);
+    }
+
+    img,
+    header {
+      float: left;
+    }
+
+    img {
+      @include size(60px);
+    }
+
+    header {
+      margin-left: 1rem;
+      font-size: 0.9em;
+    }
+
+    h4 {
+      margin: 0;
+    }
+  }
+}
+
+.people-details {
+  text-align: center;
+
+  .portrait {
+    display: block;
+    max-width: 200px;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+
+  header {
+    h3 {
+      margin-bottom: 0;
+    }
+
+    span {
+      font-weight: bold;
+    }
+  }
+}

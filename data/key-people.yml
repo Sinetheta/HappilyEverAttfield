@@ -1,0 +1,28 @@
+- name: Simon
+  title: Master of Ceremonies
+  description: A close friend to both the bride and groom, Simon P. Moses is the best and only choice for the illustrious MC title. Simon played cupid to Kevin and Tricia’s glorious union; bearing witness to the heat of their classroom spats, he knew these two were destined for each other before they even had a clue. Also a master of wit, guitar solos, and dance floor headspins, Simon’s talents know no bounds.
+  image: 'portraits/simon.jpg'
+- name: Melody
+  title: Maid of Honour
+  description: Melody and Tricia met on the first day of teachers college and it was love at first sight. A cherished travel companion, hand-holding nap friend, and adventurous unicorn; together, They’ve climbed mountains on Vancouver Island, spotted buffalo in the Yukon, and pigged out on poutine in Montreal. Trish couldn’t imagine her life without the beauty, hilarity, and inspirational work ethic of Melody Rae Stevens.
+  image: 'portraits/melody.jpg'
+- name: Krista
+  title: Bridesmaid
+  description: Krista has been friends with Tricia for a little over five years. She is always up for impromptu adventures, lengthy wine nights, and cozy coffee dates. The kindness and unrelenting goodness of this exceptional human being continues to astound the bride and groom.
+  image: 'portraits/krista.jpg'
+- name: Erin
+  title: Bridesmaid
+  description: Erin has been in Tricia’s life since they were both two-years old. They’ve stuck together through all of life’s golden moments and darkest times. More of a sister than a friend, Erin knows far too many embarrassing details from Tricia’s childhood, yet shows continued love and support. Here’s to a friendship that will extend from diapers to depends.
+  image: 'portraits/erin.jpg'
+- name: Pete
+  title: Best Man
+  description: Peter is Kevin’s earliest acquaintance who will still tolerate his presence. A true outdoorsman and commensurate scholar, he is perhaps best characterized by his most famous quote, “I read a lot of, uh… books.”
+  image: 'portraits/pete.jpg'
+- name: Adam
+  title: Groomsman
+  description: Adam and Kevin were once roommates in the famed Quadra Villa, where they lived respectful lives as upstanding citizen of the city of victory, and also had fleas. Nowadays they bond as mature adults, terrorizing children online and uttering profane oaths.
+  image: 'portraits/adam.jpg'
+- name: Rod
+  title: Groomsman
+  description: Rodney Woods, ever the itinerant reveler, oft graces our native Canada with his presence. Although he and Kevin met as coworkers at the renowned Strathcona Hotel, their true bond was forged in the fires of [online] combat.
+  image: 'portraits/rod.jpg'

@@ -1,0 +1,21 @@
+---
+title: Key People
+---
+
+- people = data["key-people"]
+.container
+  .people-choices
+    - people.each_with_index do |person, i|
+      = link_to "##{slug(person["name"])}", class: "person" + (i == 0 ? " active" : ""), "data-person-slug" => slug(person["name"]) do
+        = image_tag person["image"]
+        %header
+          %h4= person["name"]
+          %span= person["title"]
+  .people-details
+    - people.each_with_index do |person, i|
+      .person{ "data-person-slug" => slug(person["name"]), class: (i == 0 ? "active" : "") }
+        = image_tag person["image"], class: "portrait"
+        %header
+          %h3= person["name"]
+          %span= person["title"]
+        %p= person["description"]
