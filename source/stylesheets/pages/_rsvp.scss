@@ -1,0 +1,66 @@
+.email-form,
+.contact-message {
+  max-width: 650px;
+  margin: 0 auto 4rem;
+  background: $white;
+  box-shadow: $box-shadow;
+
+  .actions {
+    padding: 2rem 1rem;
+  }
+}
+
+.omega input {
+  border-bottom: none;
+}
+
+.rsvp,
+.contact {
+  .email-form {
+    margin: 4rem auto;
+  }
+
+  .backup,
+  .contact-message {
+    text-align: center;
+  }
+
+  .backup {
+    color: $grey;
+    font-style: italic;
+  }
+
+  .contact-message {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 449px) {
+  .email-form .actions {
+    button {
+      width: 100%;
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .email-form .actions {
+    @include clearfix;
+
+    button {
+      margin-bottom: 0;
+
+      &:nth-child(even) {
+        float: right;
+      }
+
+      &:nth-child(odd) {
+        float: left;
+      }
+    }
+  }
+}

@@ -3,6 +3,10 @@ $ink:             hsl(260, 58, 15); // #1F103C
 
 $color-primary:   $ink;
 
+$drop-shadow-color:     tint($color-primary, 30%);
+$drop-shadow-thickness: 4px;
+$box-shadow:            $drop-shadow-thickness $drop-shadow-thickness 0 $drop-shadow-color;
+
 // Polaroid Image Wrapper
 $color-polaroid-bg:     hsl(38, 39, 89);
 $color-scotch-tape:     hsla(55, 27, 82, 0.7);

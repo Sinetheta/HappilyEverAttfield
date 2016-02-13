@@ -67,6 +67,8 @@ end
 
 # Build-specific configuration
 configure :build do
+  # middleman gets confused and thinks that email.coffee.erb should be a page
+  ignore 'javascripts/email.coffee.erb'
   # For example, change the Compass output style for deployment
   # activate :minify_css
 

@@ -1,0 +1,36 @@
+displayMessage = (message) ->
+  document.querySelector('.email-form').classList.add('hide')
+  document.querySelector("[data-form-message='#{message}']").classList.remove('hide')
+
+displayContactForm = ->
+  for message in document.querySelectorAll('[data-form-message]')
+    message.classList.add('hide')
+  document.querySelector('.email-form').classList.remove('hide')
+
+startFormLoading = ->
+  document.querySelector('.email-form').classList.add('loading')
+  for button in document.querySelectorAll('.email-form .submit')
+    button.disabled = true
+
+sendEmail = (method, data) ->
+  Parse.Cloud.run method, data,
+    success: ({message}) ->
+      displayMessage(message)
+    error: (object, error) ->
+      displayMessage('error')
+
+onSubmitEmailForm = (e) ->
+  e.preventDefault()
+  method = $(this).attr('action')
+  data = $(this).serializeObject()
+  startFormLoading()
+  sendEmail(method, data)
+
+onClickRsvp = (e) ->
+  if e.target.dataset.rsvp
+    @elements.namedItem('rsvp').value = e.target.dataset.rsvp
+
+
+Parse.initialize("<%= ENV['PARSE_APPLICATION_ID'] %>", "<%= ENV['PARSE_JAVASCRIPT_KEY'] %>")
+$('.email-form').on('click', onClickRsvp)
+$('.email-form').on('submit', onSubmitEmailForm)

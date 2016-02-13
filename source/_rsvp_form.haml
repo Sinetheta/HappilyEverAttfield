@@ -1,0 +1,44 @@
+= form_tag 'rsvp', class: 'email-form rsvp-form' do
+
+  .form-group
+    = text_field_tag :name, placeholder: 'Name'
+    = email_field_tag :email, required: true, placeholder: 'Email'
+
+  .form-group
+    = text_area_tag(:message, placeholder: 'Message for us (eg: party size, food allergies...)').tr("\n","")
+
+  .form-group.omega
+    = text_field_tag :song, placeholder: 'Dance floor request'
+
+  = hidden_field_tag(:rsvp, value: 'yes')
+
+  .actions
+    %button.submit.button-large(data-rsvp="yes")
+      Count me in!
+    %button.submit.button-large.button-secondary(data-rsvp="no")
+      Sorry, I can't make it
+
+.contact-message.hide(data-form-message="attending")
+  %h3 Sucess!
+
+  %p
+    We're glad that you're able to make it.
+    You will be receiving a confirmation email shortly.<br>
+    In the meantime, you should checkout the
+    #{link_to('travel information', '/travel')} and
+    #{link_to('event details', '/events')}.
+
+.contact-message.hide(data-form-message="unavailable")
+  %h3 Message received!
+
+  %p
+    So sorry to hear you won’t be attending our wedding in person,
+    but we know you’ll be there in spirit.
+
+.contact-message.hide(data-form-message="error")
+  %h3 Oh no!
+
+  %p
+    Sorry, something has gone horribly wrong.<br>
+    Please give kevin a hard time for failing miserably at tech
+    = link_to 'info@happilyeverattfield.com', 'mailto:info@happilyeverattfield.com'
