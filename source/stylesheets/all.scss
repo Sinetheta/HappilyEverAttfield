@@ -1,2 +1,11 @@
-@import "bourbon";
-@import "vendor/fontello";
+@import 'bourbon';
+@import 'vendor/fontello';
+
+@import 'variables';
+
+@import 'pages/index';
+
+html,
+body {
+  height: 100%;
+}
