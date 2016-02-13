@@ -1,5 +1,7 @@
 # [HappilyEverAttfield](http://www.happilyeverattfield.com/)
 
+[![Build Status](https://travis-ci.org/Sinetheta/happilyeverattfield.svg?branch=master)](https://travis-ci.org/Sinetheta/happilyeverattfield)
+
 ## Development
 
 Our website uses Middleman. After running `bundle` simply load up a local server:
