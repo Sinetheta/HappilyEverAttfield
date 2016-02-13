@@ -36,6 +36,12 @@ Time.zone = "Pacific Time (US & Canada)"
 
 activate :directory_indexes
 
+activate :blog do |blog|
+  blog.prefix = "articles"
+  blog.sources = "{category}/{title}.html"
+  blog.publish_future_dated = true
+end
+
 ###
 # Helpers
 ###
