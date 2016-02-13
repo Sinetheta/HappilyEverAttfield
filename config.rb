@@ -2,6 +2,8 @@ require "pry"
 require "dotenv"
 Dotenv.load
 
+Time.zone = "Pacific Time (US & Canada)"
+
 ###
 # Compass
 ###
