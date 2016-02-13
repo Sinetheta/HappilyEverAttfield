@@ -1,0 +1,53 @@
+$font-family-serif:       'Alice', serif;
+$font-family-sans-serif:  Helvetica, Arial, sans-serif;
+$font-family-cursive:     'Alex Brush', cursive;
+
+$font-family-heading:     $font-family-sans-serif;
+$font-family-body:        $font-family-serif;
+$font-family-emphasis:    $font-family-cursive;
+
+@mixin thin-heading {
+  font-family: $font-family-heading;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+}
+
+$line-height-body: 1.6;
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: Slabo;
+  font-size: 16px;
+  line-height: $line-height-body;
+}
+
+header {
+  font-family: $font-family-heading;
+}
+
+h1, h2, h3, h4 {
+  color: $color-primary;
+  font-family: $font-family-heading;
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 2.5em; }
+h3 { font-size: 2em; }
+h4 { font-size: 1.2em; }
+
+h4 {
+  font-weight: normal;
+}
+
+a {
+  color: $color-primary;
+}
+
+.short-list {
+  padding-left: 0;
+  line-height: 1.2;
+  list-style: none;
+}
