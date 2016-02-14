@@ -1,0 +1,45 @@
+---
+title: Events
+---
+
+- events = event_articles.sort_by(&:date)
+.container
+  .events-inspector
+    .events-choices
+      %header
+        %h2 Events
+      %ul.events-list
+        - events.each_with_index do |event, i|
+          %li.event{ "data-event-slug" => event.slug, class: (i == 0 ? "active" : "")}
+            .scroll-stopper
+            = link_to "##{slug(event.title)}" do
+              %span.event-date
+                %span= event.date.strftime("%_m.%-d")
+              = event.title
+    .events-details
+      - events.each_with_index do |event, i|
+        .event{ "data-event-slug" => event.slug, class: (i == 0 ? "active" : "") }
+          .event-meta{id: event.slug}
+            %header
+              %h2= event.title
+            .day= event.date.strftime("%^a")
+            .date= event.date.strftime("%^b %-d")
+            .year= event.date.strftime("%Y")
+            .time= event_time_readable(event)
+            .location
+              %p.address
+                -if event.data[:location]
+                  #{event.data[:location]}<br/>
+                -if event.data[:address]
+                  #{event.data[:address]},<br/>
+                -if event.data[:city]
+                  #{event.data[:city]}, BC<br/>
+                -if event.data[:phone]
+                  <br/>
+                  = link_to event.data[:phone], tel_href(event.data[:phone])
+                  <br/>
+              -if event.data[:address]
+                =link_to google_map_url(event), class: "map" do
+                  Map to Venue
+                  %i.icon-link-ext
+          .event-description= event.body

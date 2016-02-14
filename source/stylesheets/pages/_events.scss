@@ -1,0 +1,280 @@
+$color-events-bg: hsl(240, 40%, 20%);
+
+.events {
+  header h2 {
+    font-family: $font-family-emphasis;
+    font-size: 1.75rem;
+  }
+}
+
+.events-inspector {
+  background: $white;
+  box-shadow: $box-shadow;
+
+  .events-details {
+    @include flex(1);
+  }
+}
+
+.events-choices,
+.event-meta,
+.event-description {
+  padding: 2rem;
+}
+
+.scroll-stopper {
+  font-size: 0;
+}
+
+@media screen and (max-width: 49.99rem) {
+  .events-choices {
+    text-align: center;
+
+    .event-date {
+      &:before {
+        content: '(';
+      }
+
+      &:after {
+        content: ')';
+      }
+    }
+
+    .event.active a {
+      border-bottom: 1px solid $white;
+    }
+
+    .event:not(.active) {
+      opacity: 0.8;
+    }
+  }
+
+  .events-details {
+    .event:not(.active) {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  .events-inspector {
+    @include display(flex);
+    min-height: 960px;
+  }
+
+  .events-choices {
+    width: 20rem;
+  }
+
+  .events-list {
+    .event-date {
+      @include position(absolute, null null 0 -3.25rem);
+      @include size(2.5rem);
+      display: block;
+      transition: all 0.5s;
+      border-radius: 50%;
+      background: darken($color-events-bg, 5%);
+      font-family: $font-family-body;
+      line-height: 2.5rem;
+      text-align: center;
+    }
+  }
+
+  .event.active {
+    .event-date {
+      left: 20.8rem; // container width + approximate width of arrow
+      background: $white;
+      color: $color-events-bg;
+      z-index: 2;
+
+      span {
+        display: none;
+      }
+
+      &:after {
+        position: relative;
+        top: 2px;
+        font-family: 'fontello';
+        content: $character-right-open-big;
+      }
+    }
+  }
+
+  .events-details {
+    position: relative;
+
+    .event {
+      @include position(absolute, 0);
+      @include transform-origin(left center);
+      background: $white;
+
+      &:not(.active) {
+        @include transform(rotateY(90deg));
+        transition: transform 500ms;
+        z-index: 1;
+      }
+
+      &.active {
+        position: relative;
+      }
+    }
+  }
+
+  .scroll-stopper:after {
+    content: 'preventDefault';
+  }
+}
+
+// room for 3 * 20rem sections + paddings + margin
+@media screen and (min-width: 70rem) {
+  .events-details {
+    .event-meta {
+      width: 15rem;
+    }
+
+    .event {
+      @include display(flex);
+      padding-top: 4rem;
+    }
+  }
+}
+
+.events-choices {
+  background: $color-events-bg;
+  color: $white;
+  font-family: $font-family-heading;
+
+  h2,
+  a {
+    color: inherit;
+  }
+
+  h2 {
+    padding-left: 1rem;
+  }
+
+  .events-list {
+    @include thin-heading;
+    margin-top: 2rem;
+    padding-left: 0;
+    font-size: 0.9rem;
+    list-style: none;
+    text-transform: uppercase;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .event {
+    position: relative;
+    padding: 0.5rem;
+  }
+}
+
+.event-meta {
+  text-align: center;
+
+  header h2 {
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+  }
+
+  h2 {
+    color: $color-events-bg;
+  }
+
+  .day,
+  .date,
+  .year,
+  .time {
+    font-family: $font-family-heading;
+    line-height: 1.3em;
+  }
+
+  .day,
+  .year {
+    font: 0.8rem;
+  }
+
+  .date {
+    font-size: 1.75rem;
+  }
+
+  .time {
+    margin: 2rem 0;
+    padding: 0.5rem 0;
+    border-top: 1px solid $grey-light;
+    border-bottom: 1px solid $grey-light;
+  }
+
+  .location {
+    text-align: left;
+  }
+
+  .address {
+    @include thin-heading;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $grey-light;
+    font-size: 0.9em;
+    line-height: 1.2;
+  }
+
+  .map {
+    $padding-map: 4px;
+    display: block;
+    width: 100%;
+
+    i {
+      font-size: 0.7em;
+    }
+
+    &:after {
+      @include size(90px);
+      display: block;
+      margin: 0.5rem auto;
+      padding: $padding-map;
+      border: 4px solid $grey-light;
+      border-radius: 50%;
+      background: image_url('map.png') $padding-map no-repeat;
+      font-size: 0;
+      content: '';
+    }
+
+    &:hover:after {
+      border-color: $grey-medium;
+    }
+  }
+}
+
+.event-description {
+  @include flex(1);
+  font-size: 0.9rem;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: $color-events-bg;
+    font-family: $font-family-body;
+    font-size: 1.1em;
+    text-transform: uppercase;
+  }
+
+  h2:not(:first-child) {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid $grey-light;
+  }
+
+  .swatch {
+    @include size(4rem);
+    display: inline-block;
+    border-radius: 50%;
+    box-shadow: 0 0 5px $grey-medium;
+
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+  }
+}

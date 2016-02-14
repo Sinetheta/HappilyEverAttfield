@@ -6,5 +6,6 @@
 #= require vendor/packery.pkgd.min
 
 #= require email
+#= require events
 #= require key_people
 #= require photos

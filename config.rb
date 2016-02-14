@@ -55,11 +55,33 @@ configure :development do
 end
 
 # Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+helpers do
+  def event_articles
+    blog.articles.select do |a|
+      a.metadata[:page]['category'] == 'events'
+    end
+
+
+  def google_map_url(event)
+    search_query = "#{event.data[:address]} #{event.data[:city]} BC Canada"
+    "https://www.google.com/maps/place/#{search_query}"
+  end
+
+  def slug(title)
+    title.downcase.strip.gsub(" ", "-").gsub(/[^\w-]/, "").gsub(/-+/, "-")
+  end
+  end
+
+  def event_time_readable(event)
+    return event.date.strftime("%l:%M %p") unless event.data[:end_date]
+    end_time = event.data[:end_date].to_time
+    if event.date.strftime('%p') == end_time.strftime('%p')
+      "#{event.date.strftime("%l:%M")} - #{end_time.strftime("%l:%M %p")}"
+    else
+      "#{event.date.strftime("%l:%M %p")} - #{end_time.strftime("%l:%M %p")}"
+    end
+  end
+end
 
 set :css_dir, "stylesheets"
 
