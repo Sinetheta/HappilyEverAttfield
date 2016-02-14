@@ -1,0 +1,33 @@
+.brand-link {
+  font-weight: bold;
+
+  img {
+    max-height: 4rem;
+  }
+}
+
+.top-bar {
+  border-bottom: $drop-shadow-thickness solid $drop-shadow-color;
+  text-align: center;
+
+  .navbar-menu {
+    margin: 1.5rem 0;
+    padding-left: 0;
+ }
+}
+
+@media screen and (min-width: 670px) {
+  .brand-link {
+    float: left;
+  }
+
+  .top-bar {
+    text-align: center;
+
+    .navbar-menu {
+      margin-left: 3rem;
+      float: left;
+      text-align: left;
+    }
+  }
+}
