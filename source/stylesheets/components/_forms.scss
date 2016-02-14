@@ -1,0 +1,38 @@
+$font-color-forms: lighten($color-primary, 10%);
+
+label {
+  display: none;
+}
+
+input[type="email"],
+input[type="text"],
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  margin: .25rem 0 1.75rem;
+  padding: .5rem 1rem;
+  background: $white;
+  border: none;
+  border-bottom: 1px solid $grey-medium;
+  margin: 0;
+  padding: 1em;
+
+  @media screen and (min-width: 500px) {
+    // two subling inputs
+    &:nth-child(1):nth-last-child(2),
+    &:nth-child(2):nth-last-child(1) {
+      width: 50%;
+      float: left;
+    }
+
+    &:nth-child(1):nth-last-child(2) {
+      border-right: 1px solid $grey-medium;
+    }
+  }
+}
+
+textarea {
+  min-height: 15rem;
+  width: 100%;
+}
