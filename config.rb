@@ -60,7 +60,13 @@ helpers do
     blog.articles.select do |a|
       a.metadata[:page]['category'] == 'events'
     end
+  end
 
+  def travel_articles
+    blog.articles.select do |a|
+      a.metadata[:page]['category'] == 'travel'
+    end
+  end
 
   def google_map_url(event)
     search_query = "#{event.data[:address]} #{event.data[:city]} BC Canada"
@@ -70,6 +76,9 @@ helpers do
   def slug(title)
     title.downcase.strip.gsub(" ", "-").gsub(/[^\w-]/, "").gsub(/-+/, "-")
   end
+
+  def tel_href(phone_string)
+    "tel:+1#{phone_string.gsub(/[^0-9]/, '')}"
   end
 
   def event_time_readable(event)

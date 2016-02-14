@@ -1,0 +1,152 @@
+$color-travel-bg: hsl(hue($color-primary), 12%, 30%);
+
+.travel {
+  .heading {
+    font-family: $font-family-body;
+  }
+
+  @media screen and (max-width: 649px) {
+    &-nav {
+      padding: 1rem 0;
+      text-align: center;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .article-icon {
+      display: none;
+    }
+
+    .article:not(.active) a {
+      opacity: 0.7;
+    }
+  }
+
+  @media screen and (min-width: 650px) {
+    .main-content {
+      @include justify-content(flex-end);
+      @include flex(1);
+      @include display(flex);
+    }
+
+    &-nav {
+      width: 250px;
+      padding: 3rem 2rem;
+    }
+
+    &-info {
+      width: 50%;
+    }
+
+    .article-icon {
+      @include size(2.5rem);
+      @include position(absolute, null null 0.5rem -3.25rem);
+      display: block;
+      transition: all 0.5s;
+      border-radius: 50%;
+      background: darken($color-travel-bg, 5%);
+      line-height: 2.5rem;
+      text-align: center;
+    }
+
+    .article.active {
+      .article-icon {
+        background: $white;
+        color: darken($color-travel-bg, 5%);
+      }
+    }
+
+    .article {
+      position: relative;
+      padding: 1rem 1rem 1rem 0;
+    }
+
+    .scroll-stopper:after {
+      content: 'preventDefault';
+    }
+  }
+
+  .main-content {
+    padding: 0;
+    background: image_url('cr-boats.jpg') 100% / cover;
+  }
+
+  &-nav {
+    background: fade-out($color-travel-bg, 0.25);
+    color: $white;
+
+    .heading,
+    a {
+      color: inherit;
+    }
+
+    .heading {
+      font-family: $font-family-emphasis;
+      line-height: 1em;
+    }
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .article:not(.active) a {
+      text-decoration: none;
+    }
+
+    .article-icon {
+      font-family: $font-family-body;
+    }
+  }
+
+  &-info {
+    @include clearfix;
+    position: relative;
+    background: image_url('nasty_fabric.png');
+    overflow: auto;
+
+    section:first-child .heading {
+      margin-top: 0;
+    }
+  }
+
+  &-header {
+    padding: 0 2rem 0 0.5rem;
+    background: tint($color-travel-bg, 20%);
+    text-align: right;
+
+    h2,
+    i {
+      color: $white;
+      line-height: 2rem;
+      vertical-align: middle;
+    }
+
+    h2 {
+      font-size: 1rem;
+    }
+
+    i {
+      float: left;
+    }
+  }
+
+  .article-description {
+    @include clear-margins;
+    padding: 1rem;
+
+    h3 {
+      color: $color-travel-bg;
+      font-size: 1.2rem;
+    }
+
+    // We're overriding a vendor style
+    // scss-lint:disable SelectorFormat
+    .fluidbox__wrap,
+    img {
+      display: inline-block;
+    }
+  }
+}

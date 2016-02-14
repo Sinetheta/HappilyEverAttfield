@@ -1,0 +1,24 @@
+---
+title: Travel
+---
+
+- articles = travel_articles.sort_by{ |a| a.data[:position] }
+
+.travel-nav
+  %h2.heading Welcome to Campbell River
+  %ul.travel-list
+    - articles.each_with_index do |article, i|
+      %li.article{ "data-event-slug" => article.slug, class: (i == 0 ? "active" : "")}
+        = link_to "##{slug(article.title)}" do
+          .scroll-stopper
+          %span.article-icon
+            %i{class: "icon-#{article.data[:icon]}"}
+          = article.title
+
+.travel-info
+  - articles.each_with_index do |article, i|
+    %section{ "data-event-slug" => article.slug, class: (i == 0 ? "active" : "") }
+      %header.travel-header{ id: article.slug }
+        %i{class: "icon-#{article.data[:icon]}"}
+        %h2.heading= article.title
+      .article-description= article.body
