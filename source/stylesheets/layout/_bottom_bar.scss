@@ -1,0 +1,19 @@
+.bottom-bar {
+  .navbar-menu {
+    padding-left: 0;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      border: 1px solid tint($color-primary, 20%);
+      background: tint($color-primary, 20%);
+      color: $white;
+
+      &:hover {
+        background: $white;
+        color: tint($color-primary, 20%);
+      }
+    }
+  }
+}
