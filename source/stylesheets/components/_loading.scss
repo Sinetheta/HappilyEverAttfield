@@ -1,0 +1,53 @@
+.loading {
+  @include user-select(none);
+  @include transform(translateX(-50%));
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 100%;
+  max-width: 600px;
+  height: 1em;
+  overflow: visible;
+  color: $white;
+  text-transform: uppercase;
+  font-family: $font-family-emphasis;
+
+  .letter {
+    @include animation(move 2s linear infinite);
+    @include transform(rotate(180deg));
+    position: absolute;
+    @include size(1em);
+    opacity: 0;
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i + 1}) {
+        @include animation-delay(#{$i * 0.2s});
+      }
+    }
+  }
+}
+
+@include keyframes(move) {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+
+  35% {
+    left: 41%;
+    @include transform(rotate(0deg));
+    opacity: 1;
+  }
+
+  65% {
+    left: 59%;
+    @include transform(rotate(0deg));
+    opacity: 1;
+  }
+
+  100% {
+    left: 100%;
+    @include transform(rotate(-180deg));
+    opacity: 0;
+  }
+}

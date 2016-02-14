@@ -1,11 +1,35 @@
 .photos {
+  background: shade($color-primary, 10%);
+
   .main-content {
     background: shade($color-primary, 10%);
+  }
+
+  .bottom-bar {
+    transition: transform $duration-transition;
+  }
+
+  &:not(.loaded) {
+    .bottom-bar {
+      @include transform(translateY(100%));
+    }
+
+    .photo-grid {
+      position: absolute;
+      opacity: 0;
+    }
+  }
+
+  &.loaded {
+    .loading {
+      display: none;
+    }
   }
 }
 
 .photo-grid {
   margin: 0 auto;
+  transition: opacity $duration-transition;
 }
 
 .photo {

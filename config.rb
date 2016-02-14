@@ -90,6 +90,12 @@ helpers do
       "#{event.date.strftime("%l:%M %p")} - #{end_time.strftime("%l:%M %p")}"
     end
   end
+
+  def loader
+    content_tag :div, class: 'loading' do
+      'loading'.reverse.split('').map { |l| content_tag(:div, l, class: 'letter') }.join()
+    end
+  end
 end
 
 set :css_dir, "stylesheets"
