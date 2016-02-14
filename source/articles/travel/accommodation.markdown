@@ -7,8 +7,8 @@ position: 1
 
 ### Comfort Inn & Suites
 
-![comfort inn](http://imgur.com/E2MC2d4){: .imgur}
-![comfort inn suite](http://imgur.com/035PNvf){: .imgur}
+![comfort inn](//imgur.com/E2MC2d4){: .imgur}
+![comfort inn suite](//imgur.com/035PNvf){: .imgur}
 
 * 1351 Shoppers Row
 * Campbell River, BC
@@ -20,8 +20,8 @@ position: 1
 
 ### Coast Discovery Inn
 
-![discovery inn](http://imgur.com/sx9YkV9){: .imgur}
-![discovery inn suite](http://imgur.com/xaPmwDa){: .imgur}
+![discovery inn](//imgur.com/sx9YkV9){: .imgur}
+![discovery inn suite](//imgur.com/xaPmwDa){: .imgur}
 
 * 975 Shoppers Row
 * Campbell River, BC
