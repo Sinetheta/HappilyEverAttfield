@@ -236,7 +236,7 @@ $color-events-bg: hsl(240, 40%, 20%);
       padding: $padding-map;
       border: 4px solid $grey-light;
       border-radius: 50%;
-      background: image_url('map.png') $padding-map no-repeat;
+      background: url(image_path('map.png')) $padding-map no-repeat;
       font-size: 0;
       content: '';
     }
