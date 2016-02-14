@@ -4,6 +4,10 @@
 @import 'variables';
 @import 'typography';
 
+@import 'mixins/tab_focus';
+
+@import 'components/animations';
+@import 'components/buttons';
 @import 'components/lightbox';
 @import 'components/polaroid';
 

@@ -3,6 +3,9 @@ $ink:             hsl(260, 58, 15); // #1F103C
 $white:           hsl(0, 0, 100);
 
 $color-primary:   $ink;
+$grey:            hsl(hue($color-primary), 20, 40);
+$grey-medium:     hsl(hue($color-primary), 5, 80);
+$grey-light:      hsl(hue($color-primary), 5, 90);
 
 $drop-shadow-color:     tint($color-primary, 30%);
 $drop-shadow-thickness: 4px;

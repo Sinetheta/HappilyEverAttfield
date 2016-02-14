@@ -1,0 +1,146 @@
+button,
+.button {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  border: 2px solid transparent;
+  padding: 0.5em;
+  border-radius: 3px;
+  @include transition(all .2s ease-in-out);
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      @include tab-focus();
+    }
+  }
+
+  &.focus {
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    outline: 0;
+  }
+
+  &.disabled,
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .65;
+  }
+}
+
+@mixin button-variant($color,
+                      $background,
+                      $border,
+                      $active-color: $color,
+                      $active-background: darken($background, 10%),
+                      $active-border: darken($border, 12%)
+) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:hover,
+  &.hover  {
+    color: $active-color;
+    background-color: $active-background;
+        border-color: $active-border;
+  }
+
+  &:focus,
+  &.focus {
+    color: $active-color;
+    background-color: $active-background;
+        border-color: $active-border;
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $active-color;
+    background-color: $active-background;
+        border-color: $active-border;
+    // Remove the gradient for the pressed/active state
+    background-image: none;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $active-color;
+      background-color: darken($background, 17%);
+          border-color: darken($border, 25%);
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    &:focus,
+    &.focus {
+      background-color: $background;
+          border-color: $border;
+    }
+    &:hover,
+    &.hover {
+      background-color: $background;
+          border-color: $border;
+    }
+  }
+}
+
+button,
+.button {
+  @include button-variant($white, $color-primary, $color-primary);
+}
+
+.button-secondary {
+  @include button-variant($white, $grey-medium, $grey-medium);
+}
+
+.button-large {
+  padding: 1rem 2rem;
+  font-size: 16px;
+}
+
+button,
+.button {
+  $spinner-size: 24px;
+  $spinner-thickness: 2px;
+  $offset: ($spinner-size + $spinner-thickness) * .5;
+
+  .loading & {
+  position: relative;
+  cursor: wait;
+  color: transparent;
+
+    &:hover {
+      color: transparent;
+    }
+
+    &:before {
+      content: '';
+      @include size($spinner-size);
+      @include position(absolute, 50%);
+      border: $spinner-thickness solid $white;
+      @include margin(-$offset null null (-$offset));
+      border-radius: 50%;
+      border: fade-out($white, 0.25) $spinner-thickness solid;
+      border-top-color: $white;
+      @include animation(rotate 750ms linear infinite);
+    }
+  }
+}
+
+.inverse {
+  &.button {
+    @include button-variant($color-primary, $white, $color-primary, $white, $color-primary, $color-primary);
+  }
+}
