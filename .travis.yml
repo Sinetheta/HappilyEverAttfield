@@ -7,6 +7,7 @@ install:
 script:
 - bundle exec middleman build
 - bundle exec middleman sync
+- bash <(curl -s https://peek.run/ci)
 env:
   global:
     - GA_TRACKING_ID="UA-36013038-3"
